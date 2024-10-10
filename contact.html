@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .success {
+            color: green;
+            font-size: 0.9em;
+        }
+        img{
+            max-width: 10%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-left: 180px;
+    
+    
+        }
+        #abc{
+            margin-bottom: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Hey name</h2>
+        <form id="contactForm">
+            <label for="dropdown">Department</label>
+            <select id="dropdown" name="dropdown">
+                <option value="">--Select an option--</option>
+                <option value="option1">Computer Science</option>
+                <option value="option2">Information Technology</option>
+                <option value="option3">Data Science</option>
+                <option value="option4">Other</option>
+            </select>
+            <div class="result" id="result"></div><br>
+            
+            <label for="dropdown">Class</label>
+           
+            <select id="abc" name="dropdown">
+                <option value="">--Select an option--</option>
+                <option value="option1">First Year</option>
+                <option value="option2">Second Year</option>
+                <option value="option3">Third Year</option>
+                <option value="option4">Other</option>
+            </select>
+            <div class="result" id="result">
+                <img src="synclogo.png" alt="synclogo">
+
+            </div>
+            <label for="message">Suggestion</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+        <div class="feedback" id="feedback-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const feedbackMessage = document.getElementById('feedback-message');
+
+            if (name && email && subject && message) {
+                // Normally, you would send the data to the server here
+                feedbackMessage.textContent = 'Your message has been sent successfully!';
+                feedbackMessage.className = 'success';
+            } else {
+                feedbackMessage.textContent = 'Please fill out all fields.';
+                feedbackMessage.className = 'error';
+            }
+        });
+    </script>
+     <script>
+        document.getElementById('dropdown').addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex].text;
+            document.getElementById('result').textContent = `You selected: ${selectedOption}`;
+        });
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    <div class="container">
+        <section class="cal-section">
+            <div class="box">
+                <h1>Household</h1>
+            </div>
+        <div class="question1">
+            <h2>How many people are in your houshold?</h2>
+            
+         <label for="myDropdown"></label>
+         <select id="myDropdown" onchange="displaySelected()">
+         <option value="option">Choose Number of People</option>
+         <option value="option1">1</option>
+         <option value="option2">2</option>
+         <option value="option3">3</option>
+         <option value="option3">4</option>
+         <option value="option3">5</option>
+         <option value="option3">6</option>
+         </select>
+            <div class="cal-footer">
+                <span class="question-total">1 of 5</span>
+                <a href="quest.html" class="next-btn">Next</a>
+            </div>
+        </div>
+        </section>
+    </div>
+    <script>
+        function displaySelected() {
+            var dropdown = document.getElementById("myDropdown");
+            var selectedValue = dropdown.options[dropdown.selectedIndex].text;
+            document.getElementById("selectedValue").textContent = "You selected: " + selectedValue;
+        }
+    </script>
+</body>
+</html>
